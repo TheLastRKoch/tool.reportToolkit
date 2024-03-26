@@ -5,6 +5,7 @@ __pycache__/
 
 # IDE
 .vscode/
+tool.reportToolkit/
 
 # C extensions
 *.so

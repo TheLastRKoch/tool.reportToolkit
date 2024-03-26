@@ -1,7 +1,7 @@
 import requests
 
 
-class ServiceRequest:
+class UtilWebRequest:
 
     def __base_request(self, method, headers, parameters, url, body):
 
