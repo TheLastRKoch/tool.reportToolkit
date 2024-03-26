@@ -8,7 +8,8 @@ from utils.prompt import UtilPrompt
 load_dotenv()
 
 service_mapping = {
-    "open_url_list": OpenURLList()
+    "open_url_list": OpenURLList(),
+    "clone_repos": OpenURLList()
 }
 
 # Service definition

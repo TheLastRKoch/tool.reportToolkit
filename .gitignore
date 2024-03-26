@@ -6,6 +6,7 @@ __pycache__/
 # IDE
 .vscode/
 tool.reportToolkit/
+src/dummy.py
 
 # C extensions
 *.so
