@@ -5,6 +5,5 @@ This group of scripts serve to help in the daily analize, monitorize and report 
 
 
 ## Paths
-
 (Inputs)
 ~/Documents/Workplaces/reports_toolkit
