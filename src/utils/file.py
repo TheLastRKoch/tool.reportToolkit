@@ -1,19 +1,12 @@
-from os import environ as env
-from datetime import datetime
-import pandas
 import csv
 import os
+from datetime import datetime
+from os import environ as env
+
+import pandas
 
 
 class UtilFile:
-    def read_text_file(self, path):
-        with open(path, "r", encoding="utf-8") as f:
-            return f.read()
-
-    def read_text_file_as_list(self, path):
-        with open(path, "r", encoding="utf-8") as f:
-            return f.read().split("\n")
-
     def write_text_file(self, path, body):
         with open(path, "w") as f:
             f.write(body)
@@ -33,8 +26,21 @@ class UtilFile:
             for item in data:
                 csv_writer.writerow(item.values())
 
+    def read_text_file(self, path):
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    def read_text_file_as_list(self, path):
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read().split("\n")
+
     def read_excel(self, path, sheet_name):
         return pandas.read_excel(path, sheet_name=sheet_name)
+
+    def check_if_path_exist(self, path):
+        if not os.path.exists(path):
+            os.path.dirname(path)
+            os.mkdir(path)
 
     def filter_by_column(self, excel_df: pandas.DataFrame, column_name, query):
         return excel_df[excel_df[column_name] == query]

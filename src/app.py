@@ -1,15 +1,16 @@
 from dotenv import load_dotenv
 import sys
 
-from services.open_url_list import OpenURLList
+from services.clone_repos import ServiceCloneRepositories
+from services.open_url_list import ServiceOpenURLList
 from utils.prompt import UtilPrompt
 
 # Load env variables
 load_dotenv()
 
 service_mapping = {
-    "open_url_list": OpenURLList(),
-    "clone_repos": OpenURLList()
+    "open_url_list": ServiceOpenURLList(),
+    "clone_repos": ServiceCloneRepositories()
 }
 
 # Service definition

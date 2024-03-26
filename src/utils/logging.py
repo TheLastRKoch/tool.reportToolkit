@@ -22,7 +22,7 @@ class UtilLogging:
         self.custom_log(message, "Trace", self.UNDERLINE)
 
     def info(self, message):
-        self.custom_log(message, "Information", self.COMMON)
+        self.custom_log(message, "Info", self.COMMON)
 
     def alert(self, message):
         self.custom_log(message, "Warning", self.YELLOW)
