@@ -3,6 +3,7 @@ import sys
 
 from services.clone_repos import ServiceCloneRepositories
 from services.open_url_list import ServiceOpenURLList
+from services.get_licenses import ServiceGetLicenses
 from utils.prompt import UtilPrompt
 
 # Load env variables
@@ -10,7 +11,8 @@ load_dotenv()
 
 service_mapping = {
     "open_url_list": ServiceOpenURLList(),
-    "clone_repos": ServiceCloneRepositories()
+    "clone_repos": ServiceCloneRepositories(),
+    "get_licenses": ServiceGetLicenses()
 }
 
 # Service definition

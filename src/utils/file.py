@@ -26,6 +26,9 @@ class UtilFile:
             for item in data:
                 csv_writer.writerow(item.values())
 
+    def write_excel(self, path, sheet_name, df):
+        df.to_excel(path, sheet_name=sheet_name, index=False)
+
     def read_text_file(self, path):
         with open(path, "r", encoding="utf-8") as f:
             return f.read()
