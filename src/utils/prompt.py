@@ -1,9 +1,20 @@
-from plyer import notification
 from os import environ as env
 import os
 
 
 class UtilPrompt:
+    
+    def __show_pushup_notification(self, title, message):
+        os.system("""
+                osascript -e 'display notification "{}" with title "{}" subtitle "{}" sound name "{}"'
+                """.format(message, env["APPLICATION_NAME"], title, env["NOTIFICATIONS_SOUND"]))
+
+    def info(self, title, message):
+        self.__show_pushup_notification(title, message)
+
+    def error(self, title, message):
+        self.__show_pushup_notification("Error: "+title, message)
+    
     def welcome(self, service_name):
         os.system("clear")
         print(f"Welcome to the service {service_name}")
@@ -27,19 +38,3 @@ class UtilPrompt:
     def message(self, text):
         os.system("clear")
         print(text)
-
-    def notification_info(self, message):
-        notification.notify(
-            title=env["APLICATION_NAME"],
-            message=message,
-            app_icon=None,
-            timeout=10,
-        )
-
-    def notification_error(self, title, message):
-        notification.notify(
-            title=env["APLICATION_NAME"],
-            message=message,
-            app_icon=None,
-            timeout=10,
-        )

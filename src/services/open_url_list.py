@@ -1,24 +1,25 @@
 from utils.command import UtilCommand
-from utils.file import UtilFile
 from utils.prompt import UtilPrompt
+from utils.file import UtilFile
 
-URL_LIST_PATH = r"/Users/ssegura/Documents/Workplaces/reports_toolkit/inputs/URLs.txt"
-NUM_OF_URL = 15
+from os import environ as env
 
 
 class ServiceOpenURLList:
     def remove_duplicates(self, url_list):
-        return list(set(url_list))
+        return list(dict.fromkeys(url_list))
+
+    def remove_void_items(self, url_list):
+        return list(filter(lambda a: a.strip() != "", url_list))
 
     def open_urls(self, url_list):
         command = UtilCommand()
 
         count = 1
-        formatterd_list = list(dict.fromkeys(url_list))
-        for idx, url in enumerate(formatterd_list):
-            if count == NUM_OF_URL:
+        for idx, url in enumerate(url_list):
+            if count == env["URL_PER_TIME"]:
                 input(
-                    f"{idx+1}/{len(formatterd_list)} URLs opened press any key to continue"
+                    f"{idx+1}/{len(url_list)} URLs opened press any key to continue"
                 )
                 count = 0
             command.open(url)
@@ -27,14 +28,15 @@ class ServiceOpenURLList:
     def run(self):
         # Service definition
         prompt = UtilPrompt()
-        file = UtilFile()
-        command = UtilCommand()
+        files = UtilFile()
 
+        url_path = env["URL_LIST_PATH"]
         prompt.welcome("Open URL list")
-        command.open(URL_LIST_PATH)
+        files.open(url_path)
         prompt.wait("Please fill the URL list file")
-        url_list = self.remove_duplicates(
-            file.read_text_file_as_list(URL_LIST_PATH))
+        url_list = files.read_text_file_as_list(url_path)
+        url_list = self.remove_duplicates(url_list)
+        url_list = self.remove_void_items(url_list)
         prompt.message(f"Found {len(url_list)} unique URLs\n")
         self.open_urls(url_list)
-        file.clear_file_content(URL_LIST_PATH)
+        files.clear_file_content(url_path)

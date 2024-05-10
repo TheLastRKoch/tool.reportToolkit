@@ -7,6 +7,9 @@ import pandas
 
 
 class UtilFile:
+    def open(self, path):
+        os.system("open "+path)
+
     def write_text_file(self, path, body):
         with open(path, "w") as f:
             f.write(body)

@@ -18,7 +18,6 @@ SHEET_NAME = "components"
 
 class ServiceGetLicenses:
     def get_license(self, url, pattern):
-        # Request
 
         # Init services
         service_request = UtilWebRequest()

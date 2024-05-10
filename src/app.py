@@ -19,7 +19,7 @@ service_mapping = {
 prompt = UtilPrompt()
 
 if len(sys.argv) > 1:
-    view = sys.argv[1] in service_mapping.keys()
+    sys.argv[1] in service_mapping.keys()
     if sys.argv[1] in service_mapping.keys():
         service_mapping[sys.argv[1]].run()
     else:
