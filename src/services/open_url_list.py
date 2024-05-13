@@ -15,9 +15,10 @@ class ServiceOpenURLList:
     def open_urls(self, url_list):
         command = UtilCommand()
 
+        limit = int(env["URL_PER_TIME"])
         count = 1
         for idx, url in enumerate(url_list):
-            if count == env["URL_PER_TIME"]:
+            if count == limit:
                 input(
                     f"{idx+1}/{len(url_list)} URLs opened press any key to continue"
                 )
