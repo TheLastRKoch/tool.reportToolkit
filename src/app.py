@@ -12,7 +12,7 @@ load_dotenv()
 
 service_mapping = {
     "check_url_list": ServiceCheckURLList(),
-    "open_url_list": ServiceCheckURLList(),
+    "open_url_list": ServiceOpenURLList(),
     "clone_repos": ServiceCloneRepositories(),
     "get_licenses": ServiceGetLicenses(),
 }
