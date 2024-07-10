@@ -5,7 +5,7 @@ from utils.logging import UtilLogging
 from utils.command import UtilCommand
 from utils.prompt import UtilPrompt
 
-COMMAND_NAME = "Auth Demark server"
+COMMAND_NAME = "Auth dev server"
 COMMAND = r'shortcuts run "Auth Demark server"'
 FREQUENCY = 30
 
