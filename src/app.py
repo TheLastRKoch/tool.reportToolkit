@@ -5,6 +5,7 @@ from services.clone_repos import ServiceCloneRepositories
 from services.open_url_list import ServiceOpenURLList
 from services.get_licenses import ServiceGetLicenses
 from services.check_url_list import ServiceCheckURLList
+from services.schedule_job import ServiceScheduleTask
 from utils.prompt import UtilPrompt
 
 # Load env variables
@@ -15,6 +16,7 @@ service_mapping = {
     "open_url_list": ServiceOpenURLList(),
     "clone_repos": ServiceCloneRepositories(),
     "get_licenses": ServiceGetLicenses(),
+    "schedule_task": ServiceScheduleTask()
 }
 
 # Service definition
