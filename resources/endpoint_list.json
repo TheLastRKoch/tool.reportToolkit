@@ -1,0 +1,7 @@
+[
+    {
+        "path":"/health",
+        "response":{"msg":"Ok"},
+        "status_code":200
+    }
+]

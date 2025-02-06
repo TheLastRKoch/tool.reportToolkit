@@ -6,6 +6,7 @@ from services.open_url_list import ServiceOpenURLList
 from services.get_licenses import ServiceGetLicenses
 from services.check_url_list import ServiceCheckURLList
 from services.schedule_job import ServiceScheduleTask
+from services.mock_api import ServiceMockAPI
 from utils.prompt import UtilPrompt
 
 # Load env variables
@@ -16,7 +17,8 @@ service_mapping = {
     "open_url_list": ServiceOpenURLList(),
     "clone_repos": ServiceCloneRepositories(),
     "get_licenses": ServiceGetLicenses(),
-    "schedule_task": ServiceScheduleTask()
+    "schedule_task": ServiceScheduleTask(),
+    "mock_api": ServiceMockAPI()
 }
 
 # Service definition
