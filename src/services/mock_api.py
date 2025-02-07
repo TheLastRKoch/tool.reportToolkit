@@ -36,13 +36,15 @@ class ServiceMockAPI:
             for route in route_list:
                 name = route.get("name")
                 path = route.get("path")
+                allowed_methods = route.get("allowed_methods")
                 response = route.get("response")
                 status_code = route.get("status_code")
 
                 app.add_url_rule(rule=path,
                                  view_func=lambda response=response, status_code=status_code: self.handler(
                                      response, status_code),
-                                 endpoint=name)
+                                 endpoint=name,
+                                 methods=allowed_methods)
             app.run(debug=True)
             print("Mock API running")
         else:
