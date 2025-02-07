@@ -1,5 +1,6 @@
 from os import environ as env
 from flask import Flask
+import jmespath
 import json
 
 from utils.file import UtilFile
@@ -23,6 +24,14 @@ class ServiceMockAPI:
 
         if route_list is None or len(route_list) > 0:
             app = Flask(__name__)
+
+            query = jmespath.compile(r"[].path")
+            path_list = query.search(route_list)
+
+            app.add_url_rule(rule="/",
+                             view_func=lambda response=path_list, status_code=200: self.handler(
+                                 response, status_code),
+                             endpoint="Index")
 
             for route in route_list:
                 name = route.get("name")
