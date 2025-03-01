@@ -8,6 +8,7 @@ from services.schedule_job import ServiceScheduleTask
 from services.open_url_list import ServiceOpenURLList
 from services.get_licenses import ServiceGetLicenses
 from services.mock_api import ServiceMockAPI
+from services.generate_otp import ServiceGenerateOTP
 from utils.prompt import UtilPrompt
 
 
@@ -22,6 +23,7 @@ service_mapping = {
     "schedule_task": ServiceScheduleTask(),
     "mock_api": ServiceMockAPI(),
     "clean_clipboard": ServiceCleanClipboard(),
+    "generate_otp": ServiceGenerateOTP(),
 }
 
 # Service definition
