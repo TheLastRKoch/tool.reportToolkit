@@ -10,6 +10,7 @@ src/dummy.py
 
 # C extensions
 *.so
+*.DS_Store
 
 # Distribution / packaging
 .Python
