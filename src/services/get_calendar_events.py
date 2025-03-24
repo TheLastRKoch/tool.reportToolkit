@@ -1,11 +1,11 @@
 from services.service_template import ServiceTemplate
-from utils.environment import get_and_check_variables
+from utils.environment import UtilEnvironment
 from utils.filter import UtilJMESpath
 from utils.prompt import UtilPrompt
 from utils.file import UtilFile
 import json
 
-env = get_and_check_variables(["FILE_PATH", "JMESPAHT_QUERY"])
+env = UtilEnvironment.get_and_check_variables(["FILE_PATH", "JMESPAHT_QUERY"])
 
 
 class ServiceGetCalEvents(ServiceTemplate):
