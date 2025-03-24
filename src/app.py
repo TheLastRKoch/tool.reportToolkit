@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import sys
 
+from services.get_calendar_events import ServiceGetCalEvents
 from services.clean_clipboard import ServiceCleanClipboard
 from services.clone_repos import ServiceCloneRepositories
 from services.check_url_list import ServiceCheckURLList
@@ -22,6 +23,7 @@ service_mapping = {
     "get_licenses": ServiceGetLicenses(),
     "schedule_task": ServiceScheduleTask(),
     "mock_api": ServiceMockAPI(),
+    "get_calendar_events": ServiceGetCalEvents(),
     "clean_clipboard": ServiceCleanClipboard(),
     "generate_otp": ServiceGenerateOTP(),
 }
