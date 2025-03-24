@@ -1,5 +1,5 @@
 from services.service_template import ServiceTemplate
-from utils.variable import get_and_check_variables
+from utils.environment import get_and_check_variables
 from utils.filter import UtilJMESpath
 from utils.prompt import UtilPrompt
 from utils.file import UtilFile
