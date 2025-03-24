@@ -20,7 +20,7 @@ class ServiceGetCalEvents(ServiceTemplate):
             start_date = datetime.fromisoformat(event["StartDate"])
             end_date = datetime.fromisoformat(event["EndDate"])
             duration = end_date - start_date
-            event["Duration"] = duration.total_seconds() / 60
+            event["Duration"] = f"{duration.total_seconds() / 60} mins"
             event.pop("EndDate")
         return json_formatted
 
