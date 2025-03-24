@@ -3,6 +3,7 @@ from utils.environment import UtilEnvironment
 from utils.filter import UtilJMESpath
 from utils.prompt import UtilPrompt
 from utils.file import UtilFile
+from datetime import datetime
 import json
 
 env = UtilEnvironment.get_and_check_variables(["FILE_PATH", "JMESPAHT_QUERY"])
@@ -16,12 +17,12 @@ class ServiceGetCalEvents(ServiceTemplate):
 
     def calculate_duration(self, json_formatted):
         for event in json_formatted:
-            start_date = event["StartDate"]
-            end_date = event["EndDate"]
+            start_date = datetime.fromisoformat(event["StartDate"])
+            end_date = datetime.fromisoformat(event["EndDate"])
             duration = end_date - start_date
-            event["Duration"] = duration
+            event["Duration"] = duration.total_seconds() / 60
             event.pop("EndDate")
-        return json
+        return json_formatted
 
     def run(self):
 
